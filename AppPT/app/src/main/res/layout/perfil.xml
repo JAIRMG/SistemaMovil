@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                app:fabSize="mini"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="268dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
+
+            <TextView
+                android:id="@+id/nombreEtiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/floatingActionButton"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
+                android:layout_toEndOf="@+id/floatingActionButton"
+                android:layout_toRightOf="@+id/floatingActionButton"
+                android:text="Nombre:" />
+
+            <TextView
+                android:id="@+id/escuelaEtiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/nombreEtiqueta"
+                android:layout_alignStart="@+id/nombreEtiqueta"
+                android:layout_below="@+id/nombreEtiqueta"
+                android:layout_marginTop="12dp"
+                android:text="Escuela:" />
+
+            <TextView
+                android:id="@+id/edadEtiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/escuelaEtiqueta"
+                android:layout_alignStart="@+id/escuelaEtiqueta"
+                android:layout_below="@+id/escuelaEtiqueta"
+                android:layout_marginTop="13dp"
+                android:text="Edad:" />
+
+            <TextView
+                android:id="@+id/usuarioEtiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/edadEtiqueta"
+                android:layout_alignStart="@+id/edadEtiqueta"
+                android:layout_below="@+id/edadEtiqueta"
+                android:layout_marginTop="15dp"
+                android:text="Usuario:" />
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/nombreEtiqueta"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/nombreEtiqueta"
+                android:layout_toRightOf="@+id/nombreEtiqueta"
+                android:text="Jair Moreno Gaspar" />
+
+            <TextView
+                android:id="@+id/escuela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/escuelaEtiqueta"
+                android:layout_alignLeft="@+id/nombre"
+                android:layout_alignStart="@+id/nombre"
+                android:text="UPIITA" />
+
+            <TextView
+                android:id="@+id/edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/escuela"
+                android:layout_alignStart="@+id/escuela"
+                android:layout_alignTop="@+id/edadEtiqueta"
+                android:text="22" />
+
+            <TextView
+                android:id="@+id/usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/usuarioEtiqueta"
+                android:layout_alignLeft="@+id/edad"
+                android:layout_alignStart="@+id/edad"
+                android:text="JairMG" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+    <!-- <TextView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:gravity="center"
+         android:text="@string/inicio"
+         android:textSize="24sp" /> -->
+
+
+</FrameLayout>
