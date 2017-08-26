@@ -9,13 +9,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -31,7 +34,10 @@ public class Perfil_fragment extends Fragment {
     Integer REQUEST_CAMERA=1, SELECT_FILE=0;
     private Context mContext;
     ImageView imageV;
+    EditText editUsuario;
     private Uri mSelectedImageUri;
+    TextView Usuario, Usuario2, UsuarioEtiqueta1;
+
     public Perfil_fragment(){}
 
     @Override
@@ -54,14 +60,32 @@ public class Perfil_fragment extends Fragment {
         FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {  //llama método para seleccionar imagen de perfil
 
                 Log.d("onViewCreated","hola .l.");
                 SelectImage();
             }
         });
 
-        imageV = (ImageView) getView().findViewById(R.id.imageView);
+        FloatingActionButton editUserButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton2);
+        editUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {  //llama método para seleccionar imagen de perfil
+
+                Log.d("Button2","Presiono floatingActionButton de edición");
+                EditUser();
+            }
+        });
+
+        imageV = (ImageView) getView().findViewById(R.id.imageView);  //Imagen de perfil
+        editUsuario = (EditText) getView().findViewById(R.id.editUsuario); //textEdit para que el usuario cambie su nombre de usuario
+        Usuario = (TextView) getView().findViewById(R.id.usuario);
+        Usuario2 = (TextView) getView().findViewById(R.id.usuarioEtiqueta2);
+        UsuarioEtiqueta1 = (TextView) getView().findViewById(R.id.usuarioEtiqueta);
+
+        editUsuario.setVisibility(View.GONE);
+        Usuario2.setVisibility(View.GONE);
+
         if (mSelectedImageUri != null) {
             imageV.setImageURI(mSelectedImageUri);
         }
@@ -74,6 +98,18 @@ public class Perfil_fragment extends Fragment {
         super.onAttach(activity);
         mContext = activity;
     }
+
+
+    public void EditUser(){
+
+        Usuario.setVisibility(View.GONE);
+        UsuarioEtiqueta1.setVisibility(View.GONE);
+        Usuario2.setVisibility(View.VISIBLE);
+        editUsuario.setVisibility(View.VISIBLE);
+        editUsuario.setText(Usuario.getText());
+
+    }
+
 
 
     private void SelectImage(){
