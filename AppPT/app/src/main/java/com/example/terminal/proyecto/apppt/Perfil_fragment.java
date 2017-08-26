@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,12 +18,33 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static com.example.terminal.proyecto.apppt.R.layout.activity_menu;
 import static com.example.terminal.proyecto.apppt.R.layout.perfil;
 
 
@@ -34,9 +57,13 @@ public class Perfil_fragment extends Fragment {
     Integer REQUEST_CAMERA=1, SELECT_FILE=0;
     private Context mContext;
     ImageView imageV;
-    EditText editUsuario;
+    EditText editUsuario, editContrasenia;
     private Uri mSelectedImageUri;
-    TextView Usuario, Usuario2, UsuarioEtiqueta1;
+    TextView Usuario, Contrasenia;
+    FloatingActionButton guardarButton, fotoButton, editUserButton;
+    String nomUsuario, passUsuario;
+    LineChart chart;
+
 
     public Perfil_fragment(){}
 
@@ -56,9 +83,25 @@ public class Perfil_fragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState); System.out.print("hola perro");
-        FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fotoButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton);
+        imageV = (ImageView) getView().findViewById(R.id.imageView);  //Imagen de perfil
+        editUsuario = (EditText) getView().findViewById(R.id.editUsuario); //textEdit para que el usuario cambie su nombre de usuario
+        Usuario = (TextView) getView().findViewById(R.id.usuario);
+        Contrasenia = (TextView) getView().findViewById(R.id.contrasenia);
+        editContrasenia = (EditText) getView().findViewById(R.id.editContrasenia);
+        guardarButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton3);
+        editUserButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton2);
+
+
+
+        editUsuario.setVisibility(View.GONE);
+        editContrasenia.setVisibility(View.GONE);
+        guardarButton.setVisibility(View.GONE);
+
+
+        fotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {  //llama método para seleccionar imagen de perfil
 
@@ -67,7 +110,7 @@ public class Perfil_fragment extends Fragment {
             }
         });
 
-        FloatingActionButton editUserButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton2);
+
         editUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {  //llama método para seleccionar imagen de perfil
@@ -77,18 +120,61 @@ public class Perfil_fragment extends Fragment {
             }
         });
 
-        imageV = (ImageView) getView().findViewById(R.id.imageView);  //Imagen de perfil
-        editUsuario = (EditText) getView().findViewById(R.id.editUsuario); //textEdit para que el usuario cambie su nombre de usuario
-        Usuario = (TextView) getView().findViewById(R.id.usuario);
-        Usuario2 = (TextView) getView().findViewById(R.id.usuarioEtiqueta2);
-        UsuarioEtiqueta1 = (TextView) getView().findViewById(R.id.usuarioEtiqueta);
 
-        editUsuario.setVisibility(View.GONE);
-        Usuario2.setVisibility(View.GONE);
+        guardarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                guardarInfoPerfil();
+            }
+        });
+
+
+        if(nomUsuario != null || passUsuario != null){
+            Usuario.setText(nomUsuario);
+            Contrasenia.setText(passUsuario);
+        } else {
+            Usuario.setText("");
+            Contrasenia.setText("");
+        }
 
         if (mSelectedImageUri != null) {
             imageV.setImageURI(mSelectedImageUri);
         }
+
+
+         chart = (LineChart) getView().findViewById(R.id.chart);
+
+         int[] numArr = {1,2,3,4,5,6};
+
+        List<Entry> entries1 = new ArrayList<Entry>();
+
+        for(int num : numArr){
+            entries1.add(new Entry(num, num));
+        }
+
+         LineDataSet set1 = new LineDataSet(entries1, "Numbers");
+        set1.setDrawIcons(false);
+
+        // set the line to be drawn like this "- - - - - -"
+        set1.enableDashedLine(10f, 5f, 0f);
+        set1.enableDashedHighlightLine(10f, 5f, 0f);
+        set1.setColor(Color.BLACK);
+        set1.setCircleColor(Color.BLACK);
+        set1.setLineWidth(1f);
+        set1.setCircleRadius(3f);
+        set1.setDrawCircleHole(false);
+        set1.setValueTextSize(9f);
+        set1.setDrawFilled(true);
+        set1.setFormLineWidth(1f);
+        set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
+        set1.setFormSize(15.f);
+
+         LineData lineData = new LineData(set1);
+
+
+
+        chart.setData(lineData);
+        chart.invalidate();
 
     }
 
@@ -100,13 +186,45 @@ public class Perfil_fragment extends Fragment {
     }
 
 
+    public void guardarInfoPerfil(){
+
+        nomUsuario = editUsuario.getText().toString();
+        passUsuario = editContrasenia.getText().toString();
+
+        Usuario.setText(nomUsuario);
+        Contrasenia.setText(passUsuario);
+
+        guardarButton.setVisibility(View.GONE);
+        fotoButton.setVisibility(View.VISIBLE);
+        editUserButton.setVisibility(View.VISIBLE);
+        editUsuario.setVisibility(View.GONE);
+        editContrasenia.setVisibility(View.GONE);
+        Usuario.setVisibility(View.VISIBLE);
+        Contrasenia.setVisibility(View.VISIBLE);
+
+       // InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+       // imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
+
+
+    }
+
+
+
     public void EditUser(){
 
+        fotoButton.setVisibility(View.GONE);
+        editUserButton.setVisibility(View.GONE);
+        guardarButton.setVisibility(View.VISIBLE);
+
         Usuario.setVisibility(View.GONE);
-        UsuarioEtiqueta1.setVisibility(View.GONE);
-        Usuario2.setVisibility(View.VISIBLE);
         editUsuario.setVisibility(View.VISIBLE);
         editUsuario.setText(Usuario.getText());
+
+
+        Contrasenia.setVisibility(View.GONE);
+        editContrasenia.setVisibility(View.VISIBLE);
+        editContrasenia.setText(Contrasenia.getText());
 
     }
 
