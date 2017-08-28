@@ -1,12 +1,14 @@
 package com.example.terminal.proyecto.apppt;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,28 +25,43 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.io.ByteArrayOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import static com.example.terminal.proyecto.apppt.R.layout.activity_menu;
+import static com.example.terminal.proyecto.apppt.R.layout.design_menu_item_action_area;
 import static com.example.terminal.proyecto.apppt.R.layout.perfil;
 
 
@@ -63,6 +80,10 @@ public class Perfil_fragment extends Fragment {
     FloatingActionButton guardarButton, fotoButton, editUserButton;
     String nomUsuario, passUsuario;
     LineChart chart;
+    PieChart pieChart;
+    Integer flagUsuario = 0;
+    float[] yData = { 5, 10, 15, 30, 40 };
+    String[] xData = { "Sony", "Huawei", "LG", "Apple", "Samsung" };
 
 
     public Perfil_fragment(){}
@@ -96,6 +117,8 @@ public class Perfil_fragment extends Fragment {
 
 
 
+
+
         editUsuario.setVisibility(View.GONE);
         editContrasenia.setVisibility(View.GONE);
         guardarButton.setVisibility(View.GONE);
@@ -117,6 +140,7 @@ public class Perfil_fragment extends Fragment {
 
                 Log.d("Button2","Presiono floatingActionButton de edición");
                 EditUser();
+                flagUsuario++;
             }
         });
 
@@ -129,22 +153,35 @@ public class Perfil_fragment extends Fragment {
         });
 
 
-        if(nomUsuario != null || passUsuario != null){
+        if(flagUsuario > 0 && (!nomUsuario.isEmpty() || !passUsuario.isEmpty())){
             Usuario.setText(nomUsuario);
             Contrasenia.setText(passUsuario);
-        } else {
-            Usuario.setText("");
-            Contrasenia.setText("");
-        }
+        } /*else{
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
+            builder1.setMessage("Write your message here.");
+        }*/
 
         if (mSelectedImageUri != null) {
             imageV.setImageURI(mSelectedImageUri);
         }
 
 
-         chart = (LineChart) getView().findViewById(R.id.chart);
+        //LINE CHART
+        chart = (LineChart) getView().findViewById(R.id.chart);
+        Description description = new Description();
+        description.setTextColor(Color.BLUE);
+        description.setText("Chart Data");
+        chart.setDescription(null);
 
-         int[] numArr = {1,2,3,4,5,6};
+        int[] numArr = {1,2,3,4,5,6};
+
+        final HashMap<Integer, String>numMap = new HashMap<>();
+        numMap.put(1, "enero");
+        numMap.put(2, "febrero");
+        numMap.put(3, "marzo");
+        numMap.put(4, "abril");
+        numMap.put(5, "mayo");
+        numMap.put(6, "junio");
 
         List<Entry> entries1 = new ArrayList<Entry>();
 
@@ -152,31 +189,128 @@ public class Perfil_fragment extends Fragment {
             entries1.add(new Entry(num, num));
         }
 
-         LineDataSet set1 = new LineDataSet(entries1, "Numbers");
-        set1.setDrawIcons(false);
+        LineDataSet dataSet = new LineDataSet(entries1, "Desempeño");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setCircleColor(Color.BLACK);
 
-        // set the line to be drawn like this "- - - - - -"
-        set1.enableDashedLine(10f, 5f, 0f);
-        set1.enableDashedHighlightLine(10f, 5f, 0f);
-        set1.setColor(Color.BLACK);
-        set1.setCircleColor(Color.BLACK);
-        set1.setLineWidth(1f);
-        set1.setCircleRadius(3f);
-        set1.setDrawCircleHole(false);
-        set1.setValueTextSize(9f);
-        set1.setDrawFilled(true);
-        set1.setFormLineWidth(1f);
-        set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
-        set1.setFormSize(15.f);
+        LineData data = new LineData(dataSet);
 
-         LineData lineData = new LineData(set1);
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+
+                return numMap.get((int)value);
+            }
 
 
-
-        chart.setData(lineData);
+            public int getDecimalDigits() {
+                return 0;
+            }
+        });
+        chart.setData(data);
         chart.invalidate();
 
+
+        //PIE CHART
+
+        pieChart = (PieChart) getView().findViewById(R.id.pieChart);
+        pieChart.setUsePercentValues(true);
+        Description description2 = new Description();
+        description2.setTextColor(Color.BLUE);
+        description2.setText("Efectividad");
+        pieChart.setDescription(description2);
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(ColorTemplate.COLOR_SKIP);
+        pieChart.setHoleRadius(7);
+        pieChart.setTransparentCircleRadius(10);
+        pieChart.setRotationAngle(0);
+        pieChart.setRotationEnabled(true);
+        pieChart.animateXY(3000, 3000);
+        addData();
+
+
+        // customize legends
+        Legend l = pieChart.getLegend();
+        l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+        l.setXEntrySpace(7);
+        l.setYEntrySpace(5);
+
+
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                PieEntry ce = (PieEntry) e;
+                Toast.makeText(getActivity(), xData[(Integer) e.getData()]+" : " + yData[(Integer) e.getData()], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+
+
+
+
     }
+
+
+    private void addData() {
+        ArrayList<PieEntry> yVals1 = new ArrayList<PieEntry>();
+
+        for (int i = 0; i < yData.length; i++)
+            yVals1.add(new PieEntry(yData[i], i));
+
+        ArrayList<String> xVals = new ArrayList<String>();
+
+        for (int i = 0; i < xData.length; i++)
+            xVals.add(xData[i]);
+
+        // create pie data set
+        PieDataSet dataSet = new PieDataSet(yVals1, "Market Share");
+        dataSet.setSliceSpace(3);
+        dataSet.setSelectionShift(5);
+
+        // add many colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+        dataSet.setColors(colors);
+
+        // instantiate pie data object now
+        PieData data = new PieData(dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(13f);
+        data.setValueTextColor(Color.BLACK);
+
+        pieChart.setData(data);
+        //pieChart.startAnimation();
+        // undo all highlights
+        pieChart.highlightValues(null);
+
+        // update pie chart
+        pieChart.invalidate();
+    }
+
 
 
     @Override
@@ -188,22 +322,23 @@ public class Perfil_fragment extends Fragment {
 
     public void guardarInfoPerfil(){
 
-        nomUsuario = editUsuario.getText().toString();
-        passUsuario = editContrasenia.getText().toString();
 
-        Usuario.setText(nomUsuario);
-        Contrasenia.setText(passUsuario);
+            nomUsuario = editUsuario.getText().toString();
+            passUsuario = editContrasenia.getText().toString();
 
-        guardarButton.setVisibility(View.GONE);
-        fotoButton.setVisibility(View.VISIBLE);
-        editUserButton.setVisibility(View.VISIBLE);
-        editUsuario.setVisibility(View.GONE);
-        editContrasenia.setVisibility(View.GONE);
-        Usuario.setVisibility(View.VISIBLE);
-        Contrasenia.setVisibility(View.VISIBLE);
+            Usuario.setText(nomUsuario);
+            Contrasenia.setText(passUsuario);
 
-       // InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-       // imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+            guardarButton.setVisibility(View.GONE);
+            fotoButton.setVisibility(View.VISIBLE);
+            editUserButton.setVisibility(View.VISIBLE);
+            editUsuario.setVisibility(View.GONE);
+            editContrasenia.setVisibility(View.GONE);
+            Usuario.setVisibility(View.VISIBLE);
+            Contrasenia.setVisibility(View.VISIBLE);
+
+            // InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            // imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
 
 
