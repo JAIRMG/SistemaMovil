@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.terminal.proyecto.apppt.registro">
 
-   <!-- <LinearLayout -->
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -15,151 +15,313 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp">
+        android:layout_marginLeft="30dp"> -->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="31dp"
-        android:gravity="center"
-        android:text="Nombre"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical">
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="Apellido"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:gravity="center"
-        android:layout_above="@+id/textView5"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="Usuario"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="40dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/linear_nombre">
 
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:gravity="center"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+                <TextView
+                    android:id="@+id/nombreEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Nombre"/>
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:text="Correo"
-        android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
+                <EditText
+                    android:id="@+id/nombre"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_below="@+id/textView6"
-        android:layout_marginTop="23dp"
-        android:gravity="center"
-        android:text="Contraseña" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="25dp"
-        android:gravity="center"
-        android:text="Repetir Contraseña" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText9"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:gravity="center"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_nombre"
+                android:id="@+id/linear_apellido">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_alignRight="@+id/editText9"
-        android:layout_alignEnd="@+id/editText9" />
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+                <TextView
+                    android:id="@+id/apellidoEtiqueta"
+                    android:layout_below="@+id/nombreEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Apellido"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="sendToLogin"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
+                <EditText
+                    android:id="@+id/apellido"
+                    android:layout_below="@+id/nombre"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:paddingRight="10dp"/>
 
-    <!-- </LinearLayout> -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_apellido"
+                android:id="@+id/linear_usuario">
+
+
+                <TextView
+                    android:id="@+id/usuarioEtiqueta"
+                    android:layout_below="@+id/nombreEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Usuario"/>
+
+                <EditText
+                    android:id="@+id/usuario"
+                    android:layout_below="@+id/apellido"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_usuario"
+                android:id="@+id/linear_correo">
+
+
+                <TextView
+                    android:id="@+id/correoEtiqueta"
+                    android:layout_below="@+id/usuarioEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Correo"/>
+
+                <EditText
+                    android:id="@+id/correo"
+                    android:layout_below="@+id/usuario"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_correo"
+                android:id="@+id/linear_localidad">
+
+
+                <TextView
+                    android:id="@+id/localidadEtiqueta"
+                    android:layout_below="@+id/correoEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Localidad"/>
+
+                <Spinner
+                    android:layout_below="@+id/correo"
+                    android:id="@+id/localidad"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+                </Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_localidad"
+                android:id="@+id/linear_edad">
+
+
+                <TextView
+                    android:id="@+id/edadEtiqueta"
+                    android:layout_below="@+id/localidadEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Edad"/>
+
+                <Spinner
+                    android:layout_below="@+id/usuario"
+                    android:id="@+id/edad"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+                </Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:layout_below="@+id/linear_edad"
+            android:id="@+id/linear_contrasenia1">
+
+
+            <TextView
+                android:id="@+id/contrasenia1Etiqueta"
+                android:layout_below="@+id/localidadEtiqueta"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Contraseña"/>
+
+            <EditText
+                android:id="@+id/contrasenia1"
+                android:layout_below="@+id/edad"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingRight="10dp"/>
+
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_contrasenia1"
+                android:id="@+id/linear_contrasenia2">
+
+
+                <TextView
+                    android:id="@+id/contrasenia2Etiqueta"
+                    android:layout_below="@+id/localidadEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Repetir contraseña"/>
+
+                <EditText
+                    android:id="@+id/contrasenia2"
+                    android:layout_below="@+id/edad"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+
+
+            </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/botonRegistro"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@id/linear_contrasenia2"
+                    android:text="Registrar"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"/>
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
 </RelativeLayout>
