@@ -37,7 +37,7 @@ public class HttpRequest {
         try {
             urlObj = new URL(url);
         } catch (MalformedURLException e) {
-
+            Log.i("URL Error: ", String.valueOf(e));
         }
 
         HttpURLConnection urlConnection = null;
@@ -64,7 +64,7 @@ public class HttpRequest {
 
             return total.toString();
         } catch (IOException e) {
-            //Log.e("IOException",e.getMessage());
+            Log.e("IOException: ",e.getMessage());
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }

@@ -1,7 +1,6 @@
 package com.example.terminal.proyecto.apppt;
 
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -21,28 +19,12 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static com.example.terminal.proyecto.apppt.MainActivity.ERROR_FROM_NETWORK_NOT_CONNECTED;
-import static com.example.terminal.proyecto.apppt.MainActivity.FINAL_URL;
-import static com.example.terminal.proyecto.apppt.MainActivity.SIGN_IN;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class MainActivity extends AppCompatActivity  {
 
-    //Facebook
-    private LoginButton loginButton;
     private CallbackManager callbackManager;
     public Context context;
     public String userName = "";
@@ -50,7 +32,6 @@ public class MainActivity extends AppCompatActivity  {
     EditText passwordLogin;
     EditText nombreLogin;
     Button botonLogin;
-    public String responseJson = "";
     //URL
     public static final String FINAL_URL = "http://192.168.1.74:8084/WebServiceForApp/webresources/generic";
     public static final String SIGN_IN = "/login/";
@@ -75,7 +56,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void login() {
-        Intent intent = null;
+        Intent intent;
         intent = new Intent(this, registro.class);
         startActivity(intent);
     }
@@ -89,7 +70,7 @@ public class MainActivity extends AppCompatActivity  {
         context = this;
         getApplicationContext();
         callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(R.id.login_button);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         botonLogin = (Button) findViewById(R.id.button);
         nombreLogin = (EditText) findViewById(R.id.nombreLogin);
         passwordLogin = (EditText) findViewById(R.id.passwordLogin);
@@ -162,7 +143,7 @@ public class MainActivity extends AppCompatActivity  {
         protected String doInBackground(String... data) {
 
 
-            String jsonLogin = data[0].toString().replace("{","%7B").replace("}","%7D");
+            String jsonLogin = data[0].replace("{","%7B").replace("}","%7D");
             jsonLogin = "["+jsonLogin+"]";
             Log.i("jsonFinal",jsonLogin);
             return HttpRequest.sendGetRequest(FINAL_URL + SIGN_IN + jsonLogin);
@@ -185,38 +166,29 @@ public class MainActivity extends AppCompatActivity  {
             else if(response.contains("Error") && response.contains("Message")) {
                 try {
                     JSONObject json = new JSONObject(response);
-                    int codeError = json.getInt("Error");
                     String message = json.getString("Message");
                     Toast.makeText(getApplicationContext(), "error: "+message, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                //mProgressBar.setVisibility(View.GONE);
-                //mLoginContent.setVisibility(View.VISIBLE);
+
             }
-            else{ //if(JSONBuilder.checkJsonStructure(response)) {
+            else{
                 Log.i("MyTAG: ", response);
                 CheckIfCorrect(response);
-                //goHome();
-                /*new InfoHandler(getContext()).savePatientAndToken(response);
-                Paciente paciente = new InfoHandler(getContext()).getPatientInfo();
-                if(paciente.getEspecialista()!=null)
-                    new GetSpetialistData().execute();
-                else
-                    new GetPatientSchedules().execute();*/
             }
 
         }
 
-        public void CheckIfCorrect(String response){
+        private void CheckIfCorrect(String response){
 
             String jsonObjects[] = new String[7];
-            String userName = "";
-            String password = "";
-            String email = "";
-            String localidad = "";
-            String edad = "";
-            String nombreCompleto = "";
+            String userName;
+            String password ;
+            String email;
+            String localidad;
+            String edad;
+            String nombreCompleto;
             try{
                 JSONArray array = new JSONArray(response);
 
@@ -241,8 +213,7 @@ public class MainActivity extends AppCompatActivity  {
                 localidad = jsonObjects[3];
                 edad = jsonObjects[4];
                 nombreCompleto = jsonObjects[6];
-                //String[] userInfo = new String[]{userName,password,email,localidad,edad+nombreCompleto};
-                List<String> userInfo = new ArrayList<String>();
+                List<String> userInfo = new ArrayList<>();
                 userInfo.add(userName);
                 userInfo.add(password);
                 userInfo.add(email);
@@ -250,7 +221,6 @@ public class MainActivity extends AppCompatActivity  {
                 userInfo.add(edad);
                 userInfo.add(nombreCompleto);
 
-                //Log.i("Respuesta: ", userInfo[0]);
                 goHome(userInfo);
 
 
@@ -263,7 +233,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void goHome(List<String> userInfo){
-        Intent intent = null;
+        Intent intent;
         intent = new Intent(MainActivity.this, Menu.class);
         intent.putStringArrayListExtra("userInfo", (ArrayList<String>) userInfo);
         startActivity(intent);

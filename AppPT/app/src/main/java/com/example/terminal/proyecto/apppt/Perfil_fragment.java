@@ -1,43 +1,33 @@
 package com.example.terminal.proyecto.apppt;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.DashPathEffect;
-import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -45,13 +35,14 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.ViewPortHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.BufferUnderflowException;
@@ -72,12 +63,16 @@ import static com.example.terminal.proyecto.apppt.R.layout.perfil;
 
 public class Perfil_fragment extends Fragment {
 
+    public static final String FINAL_URL = "http://192.168.1.74:8084/WebServiceForApp/webresources/generic";
+    public static final String SIGN_IN = "/updatePassword/";
+    public static final String ERROR_FROM_NETWORK_NOT_CONNECTED = "Error, Conexión a internet no disponible";
+
     Integer REQUEST_CAMERA=1, SELECT_FILE=0;
     private Context mContext;
     ImageView imageV;
-    EditText editUsuario, editContrasenia;
+    EditText editContrasenia;
     private Uri mSelectedImageUri;
-    TextView Usuario, Contrasenia, Localidad, Nombre, Edad;
+    TextView Usuario, Contrasenia, Localidad, Nombre, Edad, Correo;
     FloatingActionButton guardarButton, fotoButton, editUserButton;
     String nomUsuario, passUsuario;
     LineChart chart;
@@ -85,7 +80,7 @@ public class Perfil_fragment extends Fragment {
     Integer flagUsuario = 0;
     float[] yData = { 5, 10, 15, 30, 40 };
     String[] xData = { "Sony", "Huawei", "LG", "Apple", "SAMSUNG" };
-    List<String> userInfo = new ArrayList<String>();
+    List<String> userInfo = new ArrayList<>();
     String finalUserName = "";
     String finalPassword = "";
     String finalLocalidad = "";
@@ -125,24 +120,6 @@ public class Perfil_fragment extends Fragment {
             Log.i("Error extras","Extras existe");
         }
 
-       /* if (savedInstanceState == null) {
-            Bundle extras = getActivity().getIntent().getExtras();
-            if(extras == null) {
-                userInfo = null;
-            } else {
-                userInfo = extras.getStringArray("userInfo");
-            }
-        } else {
-            userInfo = (String[]) savedInstanceState.getSerializable("userInfo");
-        }
-
-        finalUserName = userInfo[0];
-        finalPassword = userInfo[1];
-        finalEmail = userInfo[2];
-        finalLocalidad = userInfo[3];
-        finalEdad = userInfo[4];
-        finalNombreCompleto = userInfo[5];*/
-
 
     }
 
@@ -158,29 +135,30 @@ public class Perfil_fragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState); System.out.print("hola perro");
-        fotoButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton);
-        imageV = (ImageView) getView().findViewById(R.id.imageView);  //Imagen de perfil
-        editUsuario = (EditText) getView().findViewById(R.id.editUsuario); //textEdit para que el usuario cambie su nombre de usuario
-        Usuario = (TextView) getView().findViewById(R.id.usuario);
-        Contrasenia = (TextView) getView().findViewById(R.id.contrasenia);
-        editContrasenia = (EditText) getView().findViewById(R.id.editContrasenia);
-        guardarButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton3);
-        editUserButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton2);
-        Localidad = (TextView) getView().findViewById(R.id.localidad);
-        Nombre = (TextView) getView().findViewById(R.id.nombre);
-        Edad = (TextView) getView().findViewById(R.id.edad);
+        fotoButton = getView().findViewById(R.id.floatingActionButton);
+        imageV = getView().findViewById(R.id.imageView);  //Imagen de perfil
+        Usuario = getView().findViewById(R.id.usuario);
+        Contrasenia = getView().findViewById(R.id.contrasenia);
+        editContrasenia = getView().findViewById(R.id.editContrasenia);
+        guardarButton = getView().findViewById(R.id.floatingActionButton3);
+        editUserButton = getView().findViewById(R.id.floatingActionButton2);
+        Localidad = getView().findViewById(R.id.localidad);
+        Nombre = getView().findViewById(R.id.nombre);
+        Edad = getView().findViewById(R.id.edad);
+        Correo = getView().findViewById(R.id.correo);
 
         Nombre.setText(finalNombreCompleto);
         Localidad.setText(finalLocalidad);
         Edad.setText(finalEdad);
         Usuario.setText(finalUserName);
         Contrasenia.setText(finalPassword);
+        Correo.setText(finalEmail);
 
 
 
 
 
-        editUsuario.setVisibility(View.GONE);
+        //editUsuario.setVisibility(View.GONE);
         editContrasenia.setVisibility(View.GONE);
         guardarButton.setVisibility(View.GONE);
 
@@ -215,7 +193,6 @@ public class Perfil_fragment extends Fragment {
 
 
         if(flagUsuario > 0 && (!nomUsuario.isEmpty() || !passUsuario.isEmpty())){
-            Usuario.setText(nomUsuario);
             Contrasenia.setText(passUsuario);
         } /*else{
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
@@ -228,7 +205,7 @@ public class Perfil_fragment extends Fragment {
 
 
         //LINE CHART
-        chart = (LineChart) getView().findViewById(R.id.chart);
+        chart = getView().findViewById(R.id.chart);
         Description description = new Description();
         description.setTextColor(Color.BLUE);
         description.setText("Chart Data");
@@ -244,7 +221,7 @@ public class Perfil_fragment extends Fragment {
         numMap.put(5, "mayo");
         numMap.put(6, "junio");
 
-        List<Entry> entries1 = new ArrayList<Entry>();
+        List<Entry> entries1 = new ArrayList<>();
 
         for(int num : numArr){
             entries1.add(new Entry(num, num));
@@ -276,7 +253,7 @@ public class Perfil_fragment extends Fragment {
 
         //PIE CHART
 
-        pieChart = (PieChart) getView().findViewById(R.id.pieChart);
+        pieChart = getView().findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
         Description description2 = new Description();
         description2.setTextColor(Color.BLUE);
@@ -303,7 +280,6 @@ public class Perfil_fragment extends Fragment {
 
             @Override
             public void onValueSelected(Entry e, Highlight h) {
-                PieEntry ce = (PieEntry) e;
                 Toast.makeText(getActivity(), xData[(Integer) e.getData()]+" : " + yData[(Integer) e.getData()], Toast.LENGTH_SHORT).show();
             }
 
@@ -321,7 +297,7 @@ public class Perfil_fragment extends Fragment {
 
 
     private void addData() {
-        ArrayList<PieEntry> yVals1 = new ArrayList<PieEntry>();
+        ArrayList<PieEntry> yVals1 = new ArrayList<>();
 
         for (int i = 0; i < yData.length; i++)
             yVals1.add(new PieEntry(yData[i], i));
@@ -337,7 +313,7 @@ public class Perfil_fragment extends Fragment {
         dataSet.setSelectionShift(5);
 
         // add many colors
-        ArrayList<Integer> colors = new ArrayList<Integer>();
+        ArrayList<Integer> colors = new ArrayList<>();
 
         for (int c : ColorTemplate.VORDIPLOM_COLORS)
             colors.add(c);
@@ -364,8 +340,6 @@ public class Perfil_fragment extends Fragment {
         data.setValueTextColor(Color.BLACK);
 
         pieChart.setData(data);
-        //pieChart.startAnimation();
-        // undo all highlights
         pieChart.highlightValues(null);
 
         // update pie chart
@@ -383,23 +357,35 @@ public class Perfil_fragment extends Fragment {
 
     public void guardarInfoPerfil(){
 
+        if(editContrasenia.getText().toString().equals("")) {
+            Toast.makeText(mContext, "Campo de contraseña vacío", Toast.LENGTH_SHORT).show();
+        }
+            if (editContrasenia.getText().toString().length()<5) {
+                Toast.makeText(mContext, "Contraseña insegura, modíficala", Toast.LENGTH_SHORT).show();
+        }
+        else{
+                passUsuario = editContrasenia.getText().toString();
+                Contrasenia.setText(passUsuario);
 
-            nomUsuario = editUsuario.getText().toString();
-            passUsuario = editContrasenia.getText().toString();
+                guardarButton.setVisibility(View.GONE);
+                fotoButton.setVisibility(View.VISIBLE);
+                editUserButton.setVisibility(View.VISIBLE);
+                editContrasenia.setVisibility(View.GONE);
+                Contrasenia.setVisibility(View.VISIBLE);
 
-            Usuario.setText(nomUsuario);
-            Contrasenia.setText(passUsuario);
+                String finalJson = "";
 
-            guardarButton.setVisibility(View.GONE);
-            fotoButton.setVisibility(View.VISIBLE);
-            editUserButton.setVisibility(View.VISIBLE);
-            editUsuario.setVisibility(View.GONE);
-            editContrasenia.setVisibility(View.GONE);
-            Usuario.setVisibility(View.VISIBLE);
-            Contrasenia.setVisibility(View.VISIBLE);
+                JSONObject userRequest = new JSONObject();
+                try {
+                    userRequest.put("password", passUsuario);
+                    userRequest.put("email", finalEmail);
 
-            // InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-            // imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                    finalJson = userRequest.toString();
+                } catch (JSONException ex) {
+                    System.out.println("Error al crear JSON: " + ex);
+                }
+                new savePass().execute(finalJson);
+        }
 
 
 
@@ -413,9 +399,9 @@ public class Perfil_fragment extends Fragment {
         editUserButton.setVisibility(View.GONE);
         guardarButton.setVisibility(View.VISIBLE);
 
-        Usuario.setVisibility(View.GONE);
-        editUsuario.setVisibility(View.VISIBLE);
-        editUsuario.setText(Usuario.getText());
+        //Usuario.setVisibility(View.GONE);
+        //editUsuario.setVisibility(View.VISIBLE);
+        //editUsuario.setText(Usuario.getText());
 
 
         Contrasenia.setVisibility(View.GONE);
@@ -487,5 +473,73 @@ public class Perfil_fragment extends Fragment {
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
         return Uri.parse(path);
     }
+
+
+    private class savePass extends AsyncTask<String, Long, String> {
+
+
+        protected String doInBackground(String... data) {
+            String jsonLogin = data[0].replace("{","%7B").replace("}","%7D");
+            jsonLogin = "["+jsonLogin+"]";
+            Log.i("jsonFinal",jsonLogin);
+            return HttpRequest.sendGetRequest(FINAL_URL + SIGN_IN + jsonLogin);
+        }
+
+        protected void onPostExecute(String response) {
+
+            if(response==null || response.equals("")) {
+                Toast.makeText(mContext, "Error from web service", Toast.LENGTH_SHORT).show();
+            }
+            else if(response.equals(ERROR_FROM_NETWORK_NOT_CONNECTED)) {
+                Toast.makeText(mContext, "ERROR_FROM_NETWORK_NOT_CONNECTED", Toast.LENGTH_SHORT).show();
+
+            }
+            else {
+                if (response.contains("Error") && response.contains("Message")) {
+                    try {
+                        JSONObject json = new JSONObject(response);
+                        String message = json.getString("Message");
+                        Toast.makeText(mContext, "error: " + message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    Log.i("MyTAG: ", response);
+                    CheckIfCorrect(response);
+
+                }
+            }
+
+        }
+
+        private void CheckIfCorrect(String response){
+
+            String jsonObjects[] = new String[7];
+            try{
+                JSONArray array = new JSONArray(response);
+
+
+                JSONObject jsonObj = array.getJSONObject(0);
+                jsonObjects[0] = jsonObj.getString("email");
+                jsonObjects[1] = jsonObj.getString("password");
+                jsonObjects[2] = jsonObj.getString("respuesta");
+
+
+            } catch(JSONException e){
+                System.out.println("Error al parsear json "+ e);
+            }
+            Log.i("Respuesta: ", response);
+            if(jsonObjects[2].equals("1")){
+                Toast.makeText(mContext, "Contraseña actualizada correctamente", Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(mContext, "Error al actualizar contraseña, intente más tarde", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+    }
+
 
 }
