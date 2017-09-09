@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,7 +31,14 @@ public class registro extends AppCompatActivity {
     EditText editNombre, editApellido, editCorreo, editContrasenia1,
              editContrasenia12, editUsuario;
     Spinner spinnerLocalidad, spinnerEdad;
-    Map< Boolean, String> map = new HashMap< Boolean, String>();
+    String[] estados = new String[]{"CDMX","Aguascalientes","Baja California",
+            "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
+            "Coahuila de Zaragoza", "Colima", "Colima", "Durango", "Guanajuato",
+            "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán de Ocampo",
+            "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro de Arteaga",
+            "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora","Tabasco",
+            "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"};
+    Integer[] edades = new Integer[]{10,11,12,13,14,15,16};
 
 
     Button registrar;
@@ -41,14 +51,6 @@ public class registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         context = this;
 
-        map.put(false,"Existe un error con tu nombre");
-        map.put(false,"Existe un error con tu apellido");
-        map.put(false,"Error con tu correo, asegúrate que sea un correo correcto");
-        map.put(false,"Existe un error con tu usuario");
-        map.put(false,"Las contraseñas no coinciden");
-        map.put(false,"Existe un error con tu nombre");
-
-        System.out.println(map.toString());
 
         registrar = (Button) findViewById(R.id.botonRegistro);
         editNombre = (EditText) findViewById(R.id.nombre);
@@ -57,6 +59,13 @@ public class registro extends AppCompatActivity {
         editCorreo = (EditText) findViewById(R.id.correo);
         editContrasenia1 = (EditText) findViewById(R.id.contrasenia1);
         editContrasenia12 = (EditText) findViewById(R.id.contrasenia2);
+        spinnerLocalidad = (Spinner) findViewById(R.id.localidad);
+        spinnerEdad = (Spinner) findViewById(R.id.edad);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, estados);
+        spinnerLocalidad.setAdapter(adapter);
+        ArrayAdapter<Integer> adapter2 = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_dropdown_item, edades);
+        spinnerEdad.setAdapter(adapter2);
 
 
 
@@ -71,6 +80,10 @@ public class registro extends AppCompatActivity {
                 correo = editCorreo.getText().toString();
                 contrasenia1 = editContrasenia1.getText().toString();
                 contrasenia2 = editContrasenia12.getText().toString();
+                localidad = spinnerLocalidad.getSelectedItem().toString();
+                edad = (Integer) spinnerEdad.getSelectedItem();
+
+                Log.d("spinner","localidad: "+localidad + " edad: "+edad);
 
                 InputValidatorHelper myInput = new InputValidatorHelper();
 

@@ -54,6 +54,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.BufferUnderflowException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,7 +77,7 @@ public class Perfil_fragment extends Fragment {
     ImageView imageV;
     EditText editUsuario, editContrasenia;
     private Uri mSelectedImageUri;
-    TextView Usuario, Contrasenia;
+    TextView Usuario, Contrasenia, Localidad, Nombre, Edad;
     FloatingActionButton guardarButton, fotoButton, editUserButton;
     String nomUsuario, passUsuario;
     LineChart chart;
@@ -84,6 +85,16 @@ public class Perfil_fragment extends Fragment {
     Integer flagUsuario = 0;
     float[] yData = { 5, 10, 15, 30, 40 };
     String[] xData = { "Sony", "Huawei", "LG", "Apple", "Samsung" };
+    List<String> userInfo = new ArrayList<String>();
+    String finalUserName = "";
+    String finalPassword = "";
+    String finalLocalidad = "";
+    String finalEdad = "";
+    String finalEmail = "";
+    String finalNombreCompleto = "";
+
+
+
 
 
     public Perfil_fragment(){}
@@ -91,6 +102,47 @@ public class Perfil_fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Recuperar variables del usuario desde la actividad de login
+        Bundle extras = getActivity().getIntent().getExtras();
+
+
+        if (extras != null){
+            userInfo = extras.getStringArrayList("userInfo");
+            if(userInfo != null) {
+                finalUserName = userInfo.get(0);
+                finalPassword = userInfo.get(1);
+                finalEmail = userInfo.get(2);
+                finalLocalidad = userInfo.get(3);
+                finalEdad = userInfo.get(4);
+                finalNombreCompleto = userInfo.get(5);
+
+                Toast.makeText(mContext, finalUserName + finalPassword + finalEmail + finalLocalidad + finalEdad + finalNombreCompleto, Toast.LENGTH_LONG).show();
+            } else{
+                Log.i("Error userInfo","No se pudo recuperar el arreglo de userInfo");
+            }
+        } else {
+            Log.i("Error extras","Extras existe");
+        }
+
+       /* if (savedInstanceState == null) {
+            Bundle extras = getActivity().getIntent().getExtras();
+            if(extras == null) {
+                userInfo = null;
+            } else {
+                userInfo = extras.getStringArray("userInfo");
+            }
+        } else {
+            userInfo = (String[]) savedInstanceState.getSerializable("userInfo");
+        }
+
+        finalUserName = userInfo[0];
+        finalPassword = userInfo[1];
+        finalEmail = userInfo[2];
+        finalLocalidad = userInfo[3];
+        finalEdad = userInfo[4];
+        finalNombreCompleto = userInfo[5];*/
+
 
     }
 
@@ -114,6 +166,15 @@ public class Perfil_fragment extends Fragment {
         editContrasenia = (EditText) getView().findViewById(R.id.editContrasenia);
         guardarButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton3);
         editUserButton = (FloatingActionButton) getView().findViewById(R.id.floatingActionButton2);
+        Localidad = (TextView) getView().findViewById(R.id.localidad);
+        Nombre = (TextView) getView().findViewById(R.id.nombre);
+        Edad = (TextView) getView().findViewById(R.id.edad);
+
+        Nombre.setText(finalNombreCompleto);
+        Localidad.setText(finalLocalidad);
+        Edad.setText(finalEdad);
+        Usuario.setText(finalUserName);
+        Contrasenia.setText(finalPassword);
 
 
 

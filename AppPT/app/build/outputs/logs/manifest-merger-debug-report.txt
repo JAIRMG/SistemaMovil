@@ -35,7 +35,7 @@ ADDED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal
 		ADDED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml:11:22-77
 application
 ADDED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml:13:5-34:19
-MERGED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:28:5-48:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:28:5-48:19
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\erika\.android\build-cache\70d5254448831e1fa219db48500f4ccba362cb52\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:customtabs:25.3.1] C:\Users\erika\.android\build-cache\510e9a8e5b3891b3c897258fb983fb2a063fbc13\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:design:25.0.0] C:\Users\erika\.android\build-cache\50fc70cda4c0538e7f6237f4bac3de5afc5bb6df\output\AndroidManifest.xml:25:5-20
@@ -96,7 +96,7 @@ ADDED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal
 		ADDED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml:33:19-39
 uses-sdk
 INJECTED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\erika\.android\build-cache\70d5254448831e1fa219db48500f4ccba362cb52\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:customtabs:25.3.1] C:\Users\erika\.android\build-cache\510e9a8e5b3891b3c897258fb983fb2a063fbc13\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:25.0.0] C:\Users\erika\.android\build-cache\50fc70cda4c0538e7f6237f4bac3de5afc5bb6df\output\AndroidManifest.xml:21:5-23:62
@@ -121,25 +121,25 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\er
 		INJECTED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\src\main\AndroidManifest.xml
 activity#com.facebook.FacebookActivity
-ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:29:9-32:66
+ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:29:9-32:66
 	android:configChanges
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:31:13-96
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:31:13-96
 	android:theme
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:32:13-63
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:32:13-63
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:30:13-57
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:30:13-57
 activity#com.facebook.CustomTabMainActivity
-ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:33:9-71
+ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:33:19-68
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:33:19-68
 provider#com.facebook.internal.FacebookInitProvider
-ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:44:9-47:40
+ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:44:9-47:40
 	android:authorities
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:46:13-72
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:46:13-72
 	android:exported
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:47:13-37
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:47:13-37
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.25.0] C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\AndroidManifest.xml:45:13-70
+		ADDED from [com.facebook.android:facebook-android-sdk:4.26.0] C:\Users\erika\.android\build-cache\fc095ef7226442e20c15fc4ee76144ee73452354\output\AndroidManifest.xml:45:13-70
 meta-data#android.support.VERSION
 ADDED from [com.android.support:cardview-v7:25.3.1] C:\Users\erika\.android\build-cache\70d5254448831e1fa219db48500f4ccba362cb52\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:customtabs:25.3.1] C:\Users\erika\.android\build-cache\510e9a8e5b3891b3c897258fb983fb2a063fbc13\output\AndroidManifest.xml:22:5-24:34
