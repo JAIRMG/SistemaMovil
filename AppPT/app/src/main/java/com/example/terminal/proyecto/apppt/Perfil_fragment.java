@@ -84,7 +84,7 @@ public class Perfil_fragment extends Fragment {
     PieChart pieChart;
     Integer flagUsuario = 0;
     float[] yData = { 5, 10, 15, 30, 40 };
-    String[] xData = { "Sony", "Huawei", "LG", "Apple", "Samsung" };
+    String[] xData = { "Sony", "Huawei", "LG", "Apple", "SAMSUNG" };
     List<String> userInfo = new ArrayList<String>();
     String finalUserName = "";
     String finalPassword = "";
