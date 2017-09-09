@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/nombreLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -19,16 +19,16 @@
         android:textColorLink="@color/colorPrimary" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:textColorLink="@color/colorPrimary"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/nombreLogin"
+        android:layout_alignLeft="@+id/nombreLogin"
+        android:layout_alignStart="@+id/nombreLogin"
         android:layout_marginTop="16dp" />
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_height="40dp"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/passwordLogin"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -70,8 +70,7 @@
         android:layout_marginTop="17dp"
         android:layout_below="@+id/contraseña"
         android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:onClick="click"/>
+        android:clickable="true"/>
         >
 
 </RelativeLayout>

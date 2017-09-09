@@ -3,183 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\f4c943dcefa2cd5f2193162cc67d0f4ce8679ed0\output\jars\classes.jar"
+        jar="C:\Users\erika\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_83a7812ddd4c2f602a9d113ad1ed0bc441baa5c0.jar" />
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6_722aa4a18ab6c41082ec24fe3e5d9c01ffd6c8d7.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\cdf427a2979f2091c1baf7c365fed58dec472d15\output\jars\classes.jar"
+        jar="C:\Users\erika\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.9\386a4339ffe52d5d63e80f9bed8d2b1d1a418249\android-async-http-1.4.9.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
-        sha1="474cccf169297d49fff89fd35b7634a7a9d1031c">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_efd3820df6fdf9750b68169a2ca67c2c385cfa7e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\ff98d0689b2385d36e268f4439a66e6b1a8b6c73\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_3d5bf7c263c901398de2b6718d90f2984b4dffe7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\9c0096a5616ec7afaf72befbe9d25bdebadec738\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_333d3e7cb4d98a9034ea715109f99585bd1945bd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\70d5254448831e1fa219db48500f4ccba362cb52\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_04f89e443dcecadda0891b5f8d5a872d6f1605bd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\ea7222d3c7a363a23ba794177f93f57ca661aea4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_554ed30612dfa1a6cf55770934efebe9314adc4d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\234969d74bc6b74c7f27410cc84d4d51df5401c1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_23a21ea9cb873d18a6ea14044321296acb53f9cf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\50fc70cda4c0538e7f6237f4bac3de5afc5bb6df\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_409128779933badd1759c57cde4694ac2f521ead.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\f3b7f56b6eddc42d992bb2dbbf368b8ac9cf52f5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_8fb3b155db614f29209c5ae73bef257df257ea40.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_e284fdfac2ffcf79e662bc5db78c0ae7276d9853.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\d810273e770750d6de9cdd04a95e2c3ddc05f7c5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_cc95e1909307e163f32c04e6b440ead91bf3c552.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_08b6326082a79992af26caf40fd018d20ad00565.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_ebe8ed9dc91495252bb116d56dfd0cf0882793ee.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\510e9a8e5b3891b3c897258fb983fb2a063fbc13\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="807751a24cf96566fd8675517c94d8463cf364db">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_183c73b8a76dce7bbda935c16b63811a225c3357.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\b44bd4aad8fde048816704b0c086bfbc89f48037\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_6f3f7676d8135d45281c9dbfab5a55424f85c65c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_a6927f337ede9b8ac99f5b50c24ea9c1401f01a8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\cb0d0e59f21f3a356f9e2089980620330bb505d7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_7ff067513f16124f690840c3d0906c01b340b4e7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\b02017c74a15f2e8664da9bf0b077ee7a4b63b61\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_ec170e6dc501489c2b8d99fdda6638802c67e559.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\639ecc4cf298868f62818a7d0c2a3fed409a5bc9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_0c90c73e07601f06221a420923d95dd58cf0e420.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\erika\.android\build-cache\3a2b69d965beaaa1f0d4f1504597233a5029ecd3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\classes_e72db611b57e6bb72e65f4a62f9a0b72f34c30bc.jar" />
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="C:\Users\erika\Pictures\telematica\Onceavo semestre\proyecto terminal\AppPT\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.9_ad210225021ffbabdff1d074c33cae20a18df234.jar" />
     </item>
 
 </items>

@@ -110,7 +110,7 @@
                     android:layout_gravity="right"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Jair Moreno Gaspar" />
+                    android:text="" />
 
 
             </LinearLayout>
@@ -125,24 +125,24 @@
 
 
                     <TextView
-                        android:id="@+id/escuelaEtiqueta"
+                        android:id="@+id/localidadEtiqueta"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
                         android:layout_gravity="left"
                         android:layout_below="@+id/nombreEtiqueta"
                         android:paddingLeft="50dp"
                         android:paddingRight="10dp"
-                        android:text="Escuela:" />
+                        android:text="Localidad:" />
 
                     <TextView
-                        android:id="@+id/escuela"
+                        android:id="@+id/localidad"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
                         android:layout_gravity="right"
                         android:layout_below="@+id/nombre"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="UPIITA" />
+                        android:text="" />
 
 
                 </LinearLayout>
@@ -159,7 +159,7 @@
                         android:id="@+id/edadEtiqueta"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_below="@+id/escuelaEtiqueta"
+                        android:layout_below="@+id/localidadEtiqueta"
                         android:layout_gravity="left"
                         android:paddingLeft="50dp"
                         android:paddingRight="10dp"
@@ -175,8 +175,8 @@
                         android:layout_gravity="right"
                         android:paddingLeft="30dp"
                         android:paddingRight="10dp"
-                        android:layout_below="@+id/escuela"
-                        android:text="22" />
+                        android:layout_below="@+id/localidad"
+                        android:text="" />
 
 
                 </LinearLayout>
@@ -207,7 +207,7 @@
                     android:layout_gravity="right"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="JairMG" />
+                    android:text="" />
 
 
                 <EditText
@@ -262,7 +262,7 @@
                     android:layout_gravity="right"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="JairMG"
+                    android:text=""
                     android:inputType="textPassword"/>
 
                 <EditText
