@@ -72,16 +72,16 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_dialog_material_background.xml"
+        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\Users\\erika\\Pictures\\telematica\\Onceavo semestre\\proyecto terminal\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
         "source": "C:\\Users\\erika\\.android\\build-cache\\50fc70cda4c0538e7f6237f4bac3de5afc5bb6df\\output\\res\\drawable\\design_snackbar_background.xml"
     },
     {
-        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_edit_text_material.xml"
+        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
         "merged": "C:\\Users\\erika\\Pictures\\telematica\\Onceavo semestre\\proyecto terminal\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
@@ -92,16 +92,16 @@
         "source": "C:\\Users\\erika\\.android\\build-cache\\fc095ef7226442e20c15fc4ee76144ee73452354\\output\\res\\drawable\\messenger_button_white_bg_round.xml"
     },
     {
-        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\notification_bg.xml"
+        "merged": "C:\\Users\\erika\\Pictures\\telematica\\Onceavo semestre\\proyecto terminal\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\erika\\.android\\build-cache\\f3b7f56b6eddc42d992bb2dbbf368b8ac9cf52f5\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "C:\\Users\\erika\\Pictures\\telematica\\Onceavo semestre\\proyecto terminal\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\erika\\.android\\build-cache\\f3b7f56b6eddc42d992bb2dbbf368b8ac9cf52f5\\output\\res\\drawable\\abc_ratingbar_material.xml"
+        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_background.xml",
@@ -164,12 +164,12 @@
         "source": "C:\\Users\\erika\\.android\\build-cache\\f3b7f56b6eddc42d992bb2dbbf368b8ac9cf52f5\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_cancel_background.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\bf5b98a8aaa2861213d4c90f2fb489aec7bb81b1\\output\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
-    },
-    {
         "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\09219873fd9a721e03835be866643cd14a5a3343\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_cancel_background.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\bf5b98a8aaa2861213d4c90f2fb489aec7bb81b1\\output\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
     },
     {
         "merged": "C:\\Users\\pc\\Documents\\Jair\\Proyecto Terminal\\SistemaMovil\\AppPT\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
