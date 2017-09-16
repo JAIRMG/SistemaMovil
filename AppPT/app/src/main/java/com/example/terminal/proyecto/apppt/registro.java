@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 public class registro extends AppCompatActivity {
 
-    public static final String FINAL_URL = "http://192.168.1.74:8084/WebServiceForApp/webresources/generic";
+    public static final String FINAL_URL = "http://192.168.1.88:8084/WebServiceForApp/webresources/generic";
     public static final String SIGN_IN = "/register/";
     public static final String ERROR_FROM_NETWORK_NOT_CONNECTED = "Error, Conexión a internet no disponible";
 

@@ -6,4 +6,7 @@
     <string name="practicar">Practicar</string>
     <string name="curso">Curso</string>
     <string name="informacion">Información</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

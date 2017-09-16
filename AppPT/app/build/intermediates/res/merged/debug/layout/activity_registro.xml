@@ -225,17 +225,49 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:layout_below="@+id/linear_edad"
+                android:id="@+id/linear_genero">
+
+
+                <TextView
+                    android:id="@+id/generoEtiqueta"
+                    android:layout_below="@+id/edadEtiqueta"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Género"/>
+
+                <Spinner
+                    android:layout_below="@+id/usuario"
+                    android:id="@+id/genero"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+                </Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="20dp"
-            android:layout_below="@+id/linear_edad"
+            android:layout_below="@+id/linear_genero"
             android:id="@+id/linear_contrasenia1">
 
 
             <TextView
                 android:id="@+id/contrasenia1Etiqueta"
-                android:layout_below="@+id/localidadEtiqueta"
+                android:layout_below="@+id/generoEtiqueta"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:gravity="center"
@@ -246,7 +278,7 @@
 
             <EditText
                 android:id="@+id/contrasenia1"
-                android:layout_below="@+id/edad"
+                android:layout_below="@+id/genero"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"

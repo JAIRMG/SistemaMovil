@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -31,6 +31,7 @@
         <activity android:name=".registro" />
         <activity android:name=".password" />
         <activity android:name=".Menu"></activity>
+        <activity android:name=".Practicar_activity"></activity>
     </application>
 
 </manifest>

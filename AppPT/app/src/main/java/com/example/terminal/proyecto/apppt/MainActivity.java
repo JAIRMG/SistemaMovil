@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity  {
     EditText nombreLogin;
     Button botonLogin;
     //URL
-    public static final String FINAL_URL = "http://192.168.1.74:8084/WebServiceForApp/webresources/generic";
+    public static final String FINAL_URL = "http://192.168.1.88:8084/WebServiceForApp/webresources/generic";
     public static final String SIGN_IN = "/login/";
     public static final String ERROR_FROM_NETWORK_NOT_CONNECTED = "Error, Conexión a internet no disponible";
 
@@ -118,7 +118,10 @@ public class MainActivity extends AppCompatActivity  {
 
             // [{"userName":"jair","password":"1234","email":"jair.mg.27@gmail.com"}]
 
-                new DoLogIn().execute(finalJson);
+               // new DoLogIn().execute(finalJson);
+                  Intent intent;
+                intent = new Intent(MainActivity.this, Menu.class);
+                startActivity(intent);
 
             }
         });
